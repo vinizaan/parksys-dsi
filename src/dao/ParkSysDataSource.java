@@ -13,6 +13,6 @@ public class ParkSysDataSource {
 	}
 
 	public Connection getConnection() throws SQLException {
-		return getConnection("projetodsi", "root", "aaa123456@@");
+		return getConnection("projetodsi", "admin_projetodsi", "projetodsi123");
 	}
 }

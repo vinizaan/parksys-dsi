@@ -62,7 +62,7 @@ public class EntradaSaidaGUI {
     private JPanel cards = new JPanel(new CardLayout());
     String panelInicio = "Card Inicial";
     String panelEntrada = "Card Entrada";
-    String panelSaida = "Card Sa�da";
+    String panelSaida = "Card Saída";
     int qtdVagas;
 
     private JFrame frame;
@@ -72,7 +72,7 @@ public class EntradaSaidaGUI {
     }
 
     private void criarComponentes() {
-        frame = new JFrame("Entrada/Sa�da");
+        frame = new JFrame("Entrada/Saída");
         frame.getContentPane().setLayout(new BorderLayout());
         JPanel panel = adicionarComponentes();
         frame.getContentPane().add(panel, BorderLayout.CENTER);
@@ -95,9 +95,9 @@ public class EntradaSaidaGUI {
         JPanel cardEntrada = new JPanel();
         JPanel cardSaida = new JPanel();
 
-        lblPlacaInicio = new JLabel("Placa do Ve�culo: ");
-        lblPlacaEntrada = new JLabel("Placa do Ve�culo: ");
-        lblPlacaSaida = new JLabel("Placa do Ve�culo: ");
+        lblPlacaInicio = new JLabel("Placa do Veículo: ");
+        lblPlacaEntrada = new JLabel("Placa do Veículo: ");
+        lblPlacaSaida = new JLabel("Placa do Veículo: ");
         try {
             txtPlacaInicio = new JFormattedTextField(new MaskFormatter("???A###"));
             txtPlacaEntrada = new JFormattedTextField(new MaskFormatter("???A###"));
@@ -112,21 +112,21 @@ public class EntradaSaidaGUI {
         txtPlacaEntrada.setHorizontalAlignment(SwingConstants.RIGHT);
         txtPlacaSaida.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        lblDesc = new JLabel("Descri��o do Ve�culo:");
+        lblDesc = new JLabel("Descrição do Veículo:");
         txtDesc = new JTextField(8);
 
-        lblHorarioEntEntrada = new JLabel("Hor�rio de Entrada:");
+        lblHorarioEntEntrada = new JLabel("Horário de Entrada:");
         txtHorEntEntrada = new JTextField(8);
-        lblHorarioEntSaida = new JLabel("Hor�rio de Entrada:");
+        lblHorarioEntSaida = new JLabel("Horário de Entrada:");
         txtHorEntSaida = new JTextField(8);
-        lblHorarioSaida = new JLabel("Hor�rio de Sa�da:");
+        lblHorarioSaida = new JLabel("Horário de Saída:");
         txtHorSaida = new JTextField(8);
-        lblPermanencia = new JLabel("Tempo de Perman�ncia:");
+        lblPermanencia = new JLabel("Tempo de Permanência:");
         txtPermanencia = new JTextField(8);
 
-        lblDuracaoBlocoEntrada = new JLabel("Dura��o do Bloco (horas)");
+        lblDuracaoBlocoEntrada = new JLabel("Duração do Bloco (horas)");
         txtDuracaoBlocoEntrada = new JTextField(8);
-        lblDuracaoBlocoSaida = new JLabel("Dura��o do Bloco (horas)");
+        lblDuracaoBlocoSaida = new JLabel("Duração do Bloco (horas)");
         txtDuracaoBlocoSaida = new JTextField(8);
 
         qtdVagas = buscarNumeroVagas();
@@ -139,9 +139,9 @@ public class EntradaSaidaGUI {
         lblQtdBlocoSaida = new JLabel("Quantidade de Blocos:");
         txtQtdBlocoSaida = new JTextField(8);
 
-        lblPrecoBlocoEntrada = new JLabel("Pre�o do Bloco:");
+        lblPrecoBlocoEntrada = new JLabel("Preço do Bloco:");
         txtPrecoBlocoEntrada = new JTextField(8);
-        lblPrecoBlocoSaida = new JLabel("Pre�o do Bloco:");
+        lblPrecoBlocoSaida = new JLabel("Preço do Bloco:");
         txtPrecoBlocoSaida = new JTextField(8);
 
         lblTotal = new JLabel("Total a pagar:");
@@ -166,7 +166,7 @@ public class EntradaSaidaGUI {
         btnRegistrarSaida.addActionListener((ActionEvent e) -> {registrarSaida();});
 
 
-        /* configura��o do layout */
+        /* configuração do layout */
         cardInicio.setLayout(new GridBagLayout());
         GridBagConstraints gbc;
 
@@ -242,7 +242,7 @@ public class EntradaSaidaGUI {
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
 
-        /* DESCRI��O */
+        /* DESCRIÇÃO */
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 1;
@@ -307,7 +307,7 @@ public class EntradaSaidaGUI {
         gbc.insets = new Insets(10, 5, 0, 10);
         panel.add(txtHorEntEntrada, gbc);
 
-        /* DURA��O DO BLOCO */
+        /* DURAÇÃO DO BLOCO */
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 1;
@@ -328,7 +328,7 @@ public class EntradaSaidaGUI {
         gbc.insets = new Insets(10, 5, 0, 10);
         panel.add(txtDuracaoBlocoEntrada, gbc);
 
-        /* PRE�O DO BLOCO */
+        /* PREÇO DO BLOCO */
         gbc.gridx = 0;
         gbc.gridy = 4;
         gbc.gridwidth = 1;
@@ -362,7 +362,7 @@ public class EntradaSaidaGUI {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel.add(lblMensalistaAvulsoEntrada, gbc);
 
-        /* Bot�o Cadastar */
+        /* Botão Cadastar */
         gbc.gridx = 3;
         gbc.gridy = 3;
         gbc.gridwidth = 3;
@@ -372,7 +372,7 @@ public class EntradaSaidaGUI {
         gbc.insets = new Insets(10, 10, 10, 10);
         panel.add(btnRegistrarEnt, gbc);
 
-        /* Bot�o Saida */
+        /* Botão Saida */
         gbc.gridx = 3;
         gbc.gridy = 4;
         gbc.gridwidth = 3;
@@ -747,7 +747,7 @@ public class EntradaSaidaGUI {
             protected void done() {
                 try {
                      if (get()) {
-                        JOptionPane.showMessageDialog(null, "Sa�da finalizada com sucesso!");
+                        JOptionPane.showMessageDialog(null, "Saída finalizada com sucesso!");
 
                         cl.show(cards, panelInicio);
 
@@ -776,7 +776,7 @@ public class EntradaSaidaGUI {
     private void consultarPlaca() {
         String numeroPlaca = txtPlacaInicio.getText();
         if (numeroPlaca.isBlank()) {
-            JOptionPane.showMessageDialog(null,"O n�mero n�o pode ser nulo e ter menos que 7 caracteres.");
+            JOptionPane.showMessageDialog(null,"O número não pode ser nulo e ter menos que 7 caracteres.");
         } else {
             verificarPlaca(numeroPlaca, lblMensalistaAvulsoEntrada);
         }
@@ -959,7 +959,7 @@ public class EntradaSaidaGUI {
 
     private void confirmExit() {
         int answer = JOptionPane.showConfirmDialog(frame,
-                "Se voc� sair do aplicativo, o registro de Entrada ou Sa�da atual ser� cancelado. Deseja continuar?",
+                "Se você sair do aplicativo, o registro de Entrada ou Saída atual será cancelado. Deseja mesmo sair?",
                 "Sair",
                 JOptionPane.YES_NO_OPTION);
 

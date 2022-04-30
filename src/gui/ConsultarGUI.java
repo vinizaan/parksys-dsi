@@ -49,13 +49,13 @@ public class ConsultarGUI {
     private JPanel adicionarComponentes() {
         JPanel panel = new JPanel();
 
-        btnConsFatDiario = new JButton("Consultar Faturamento Di�rio");
+        btnConsFatDiario = new JButton("Consultar Faturamento Diário");
         btnConsFatDiario.addActionListener((ActionEvent e) -> {consFatDiarioFun();});
 
-        btnConsPermanencia = new JButton("Consultar Perman�ncia");
+        btnConsPermanencia = new JButton("Consultar Permanência");
         btnConsPermanencia.addActionListener((ActionEvent e) -> {consPermanenciaFun();});
 
-        lblDataInicio = new JLabel("Data In�cio:");
+        lblDataInicio = new JLabel("Data Início:");
         lblDataFim = new JLabel("Data Fim:");
 
         
@@ -69,7 +69,7 @@ public class ConsultarGUI {
         btnSair = new JButton("Sair");
         btnSair.addActionListener((ActionEvent e) -> {confirmExit();});
 
-        /* configura��o do layout */
+        /* configuração do layout */
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
@@ -116,7 +116,7 @@ public class ConsultarGUI {
         gbc.insets = new Insets(10, 10, 10, 10);
         panel.add(dataFim, gbc);
 
-        /* Faturamento Di�rio */
+        /* Faturamento Diário */
         gbc.gridx = 2;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
@@ -154,7 +154,7 @@ public class ConsultarGUI {
 
     private void confirmExit() {
         int answer = JOptionPane.showConfirmDialog(frame,
-                "Deseja sair?",
+                "Deseja sair da tela de Consulta?",
                 "Sair",
                 JOptionPane.YES_NO_OPTION);
 
@@ -195,16 +195,16 @@ public class ConsultarGUI {
                             JOptionPane.showMessageDialog(null, "Escolha um intervalo de 7 dias.");
                         }
                     } else if(ldInicio.isEqual(ldFim)){
-                        JOptionPane.showMessageDialog(null, "As datas n�o podem ser iguais");
+                        JOptionPane.showMessageDialog(null, "As datas não podem ser iguais");
                     } else {
-                        JOptionPane.showMessageDialog(null, "A Data In�cio n�o pode ser depois da Data Fim");
+                        JOptionPane.showMessageDialog(null, "A Data Início não pode ser depois da Data Fim");
                     }
 
                 }
             });
             t.start();
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Voc� precisa digitar uma data v�lida para os dois campos.");
+            JOptionPane.showMessageDialog(null, "Você precisa digitar uma data válida para os dois campos.");
         }
 
     }
@@ -238,7 +238,7 @@ public class ConsultarGUI {
             });
             t.start();
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Voc� precisa digitar uma data v�lida para os dois campos.");
+            JOptionPane.showMessageDialog(null, "Você precisa digitar uma data válida para os dois campos.");
         }
     }
 }

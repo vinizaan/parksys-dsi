@@ -73,7 +73,7 @@ public class CadastrarMensalistaGUI {
                 if (txtNome.getText().length() >= 35 ) // limit textfield to 3 characters
                     e.consume();
                 if (txtNome.getText().length() > 35){
-                    JOptionPane.showMessageDialog(null, "O campo nome n�o pode ultrapassar 35 caracteres.");
+                    JOptionPane.showMessageDialog(null, "O campo nome não pode ultrapassar 35 caracteres.");
                     txtNome.setText(txtNome.getText().substring(0,35));
                 }
             }
@@ -90,7 +90,7 @@ public class CadastrarMensalistaGUI {
         txtTelefone.setHorizontalAlignment(SwingConstants.RIGHT);
         txtTelefone.setBorder(new LineBorder(Color.GRAY));
 
-        lblObs = new JLabel("Observa��o: ");
+        lblObs = new JLabel("Observação: ");
         areaObs = new JTextArea(6,30);
         areaObs.setAlignmentX(SwingConstants.RIGHT);
         areaObs.setLineWrap(true);
@@ -121,7 +121,7 @@ public class CadastrarMensalistaGUI {
         btnSair = new JButton("Sair");
         btnSair.addActionListener((ActionEvent e) -> {confirmExit();});
 
-        /* configura��o do layout */
+        /* configuração do layout */
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc;
 
@@ -192,7 +192,7 @@ public class CadastrarMensalistaGUI {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel.add(txtTelefone, gbc);
 
-        /* OBSERVA��O */
+        /* OBSERVAÇÃO */
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 1;
@@ -267,7 +267,7 @@ public class CadastrarMensalistaGUI {
             JOptionPane.showMessageDialog(null, "Todos os campos obrigatorios devem ser preenchidos.");
             return;
         } else if (!matchesOnlyText(nome)) {
-            JOptionPane.showMessageDialog(null, "O campo nome n�o pode conter n�meros!");
+            JOptionPane.showMessageDialog(null, "O campo nome não pode conter números!");
             return;
         }
         MensalistaDAO dao = new MensalistaDAO();
@@ -279,7 +279,7 @@ public class CadastrarMensalistaGUI {
         try {
 			if(dao.findByCPF(cpf)!=null)
 			{
-				JOptionPane.showMessageDialog(null, "J� existe um mensalista com esse CPF!");
+				JOptionPane.showMessageDialog(null, "Já existe um mensalista com esse CPF!");
 	            return;
 			}
 		} catch (DataAccessException e1) {
@@ -317,7 +317,7 @@ public class CadastrarMensalistaGUI {
 
     private void confirmExit() {
         int answer = JOptionPane.showConfirmDialog(frame,
-                "Se voc� sair do aplicativo, o cadastro atual ser� cancelado. Deseja continuar?",
+                "Se você sair do aplicativo, o cadastro atual será cancelado. Deseja mesmo sair?",
                 "Sair",
                 JOptionPane.YES_NO_OPTION);
 

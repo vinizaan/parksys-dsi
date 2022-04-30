@@ -61,17 +61,17 @@ public class ConfiguracaoGUI {
     private JPanel adicionarComponentes() {
         JPanel panel = new JPanel();
 
-        lblDuracao = new JLabel("Dura��o do Bloco");
+        lblDuracao = new JLabel("Duração do Bloco");
         String duracoes[] = { "-" , "1 hora", "2 horas", "3 horas", "4 horas", "5 horas"};
         cbxDuracoes = new JComboBox<String>(duracoes);
 
-        lblPrecoBloco = new JLabel("Pre�o do Bloco");
+        lblPrecoBloco = new JLabel("Preço do Bloco");
         txtPrecoBloco = new JTextField(8);
 
         lblDescontoMens = new JLabel("Desconto para Mensalistas (%)");
         txtDescontoMens = new JTextField(8);
 
-        lblQtdMinimaHoras = new JLabel("Horas M�nimas");
+        lblQtdMinimaHoras = new JLabel("Horas Mínimas");
         txtQtdMinimaHoras = new JTextField(8);
 
         lblQtdVagas = new JLabel("Quantidade de Vagas");
@@ -83,12 +83,12 @@ public class ConfiguracaoGUI {
         btnSair = new JButton("Sair");
         btnSair.addActionListener((ActionEvent e) -> {confirmExit();});
 
-        /* configura��o do layout */
+        /* configuração do layout */
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
 
-        /* Dura��o do Bloco */
+        /* Duração do Bloco */
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 1;
@@ -109,7 +109,7 @@ public class ConfiguracaoGUI {
         gbc.insets = new Insets(10, 10, 10, 10);
         panel.add(cbxDuracoes, gbc);
 
-        /* Pre�o do Bloco */
+        /* Preço do Bloco */
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1;
@@ -151,7 +151,7 @@ public class ConfiguracaoGUI {
         gbc.insets = new Insets(10, 10, 10, 10);
         panel.add(txtDescontoMens, gbc);
 
-        /* QTD m�nima de horas */
+        /* QTD mínima de horas */
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 1;
@@ -275,10 +275,10 @@ public class ConfiguracaoGUI {
         }
 
         if (duracao.equals("-")) {
-            JOptionPane.showMessageDialog(null, "Escolha as Dura��es de Blocos dispon�veis.");
+            JOptionPane.showMessageDialog(null, "Escolha as Durações de Blocos disponíveis.");
             return;
         } else if (precoBloco <= 0) {
-            JOptionPane.showMessageDialog(null, "Digite o Pre�o do Bloco maior que zero.");
+            JOptionPane.showMessageDialog(null, "Digite o Preço do Bloco maior que zero.");
             return;
         } else if (descontoTxt <= 0) {
             JOptionPane.showMessageDialog(null, "Digite o Desconto para Mensalistas maior que zero.");
@@ -290,14 +290,14 @@ public class ConfiguracaoGUI {
             JOptionPane.showMessageDialog(null, "Digite a Quantidade de Vagas maior que a quantidade de vagas em uso.");
             return;
         } else if(qtdMin<=0){
-            JOptionPane.showMessageDialog(null, "Digite a Quantidade M�nima de Horas para Desconto maior que zero.");
+            JOptionPane.showMessageDialog(null, "Digite a Quantidade Mínima de Horas para Desconto maior que zero.");
             return;
         }
 
         SwingWorker<Void, Void> worker = new SwingWorker<>() {
             @Override
             protected Void doInBackground() throws DataAccessException {
-                int duracaoInt=1; // padr�o
+                int duracaoInt=1; // padrão
                 if(duracao.equals("1 hora")){
                     duracaoInt = 1;
                 } else if(duracao.equals("2 horas")){
@@ -323,7 +323,7 @@ public class ConfiguracaoGUI {
             protected void done() {
                 try {
                     get();
-                    JOptionPane.showMessageDialog(null, "Configura��es alteradas com sucesso.");
+                    JOptionPane.showMessageDialog(null, "Configurações alteradas com sucesso.");
 
                 } catch (InterruptedException | ExecutionException e) {
                     JOptionPane.showMessageDialog(null, e, "Erro: ", JOptionPane.ERROR_MESSAGE);                }
@@ -334,7 +334,7 @@ public class ConfiguracaoGUI {
 
     private void confirmExit() {
         int answer = JOptionPane.showConfirmDialog(frame,
-                "Deseja sair?",
+                "Deseja sair da tela de Configuração?",
                 "Sair",
                 JOptionPane.YES_NO_OPTION);
 

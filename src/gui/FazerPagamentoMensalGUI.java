@@ -65,7 +65,7 @@ public class FazerPagamentoMensalGUI {
 
     private void confirmExit() {
         int answer = JOptionPane.showConfirmDialog(frame,
-                "Deseja sair?",
+                "Deseja sair da tela de Pagamento?",
                 "Sair",
                 JOptionPane.YES_NO_OPTION);
 
@@ -118,7 +118,7 @@ public class FazerPagamentoMensalGUI {
         btnSair = new JButton("Sair");
         btnSair.addActionListener((ActionEvent e) -> {confirmExit();});
 
-        /* configura��o do layout */
+        /* configuração do layout */
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc;
 
@@ -343,7 +343,7 @@ public class FazerPagamentoMensalGUI {
         double valorMin;
 
         if (valorPago == null){
-            JOptionPane.showMessageDialog(null, "O campo de Valor � obrigat�rio.");
+            JOptionPane.showMessageDialog(null, "O campo de Valor é obrigatório.");
             return;
         } else {
             ConfiguracaoDAO configuracaoDAO = new ConfiguracaoDAO();
@@ -363,7 +363,7 @@ public class FazerPagamentoMensalGUI {
             valorMin = minHoras*precoHora;
 
             if (valorPagoAux < valorMin){
-                JOptionPane.showMessageDialog(null, "O valor m�nimo para o desconto ser aplicado � de:\n" + valorMin);
+                JOptionPane.showMessageDialog(null, "O valor mínimo para o desconto ser aplicado é de:\n" + valorMin);
                 return;
             }
         }
@@ -410,7 +410,7 @@ public class FazerPagamentoMensalGUI {
                 try {
                     FazerPagamento fazerPagamento = get();
                     JOptionPane.showMessageDialog(null, "Pagamento registrado com sucesso!"+
-                            "\nValor Pago ap�s desconto: " + fazerPagamento.getValorPago());
+                            "\nValor Pago após desconto: " + fazerPagamento.getValorPago());
                     frame.dispose();
                 } catch (InterruptedException | ExecutionException e) {
                     JOptionPane.showMessageDialog(null, e, "Erro: ", JOptionPane.ERROR_MESSAGE);                }
@@ -425,13 +425,13 @@ public class FazerPagamentoMensalGUI {
         String regexCel = "^\\([0-9]{2}\\)[0-9]{5}\\-[0-9]{4}$";
 
         if (buscaText.isBlank()){
-            JOptionPane.showMessageDialog(null, "O campo de busca n�o pode estar vazio.");
+            JOptionPane.showMessageDialog(null, "O campo de busca não pode estar vazio.");
         } else if (buscaText.matches(regexCPF)){
             verificarMensalista(buscaText, 1);
         } else if (buscaText.matches(regexCel)){
             verificarMensalista(buscaText, 2);
         } else {
-            JOptionPane.showMessageDialog(null, "Busque o Mensalista seguindo as express�es:\n\n" +
+            JOptionPane.showMessageDialog(null, "Busque o Mensalista seguindo as expressões:\n\n" +
                     "-                         CPF:    XXX.XXX.XXX-XX \n" +
                     "- Telefone Celular:    (XX)XXXXX-XXXX");
         }
@@ -456,7 +456,7 @@ public class FazerPagamentoMensalGUI {
                 try {
                     Mensalista mensalista = get();
                     if (mensalista==null){
-                        JOptionPane.showMessageDialog(null, "Mensalista n�o encontrado.");
+                        JOptionPane.showMessageDialog(null, "Mensalista não encontrado.");
                     } else {
                         txtNome.setText(mensalista.getNome());
                         txtNome.setCaretPosition(0);

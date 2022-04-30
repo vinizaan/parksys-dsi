@@ -38,6 +38,4 @@ public class Mensalista {
 	public void setObs(String obs) {
 		this.obs = obs;
 	}
-	
-	
 }

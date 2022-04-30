@@ -25,7 +25,7 @@ public class MainApp {
     }
 
     private void criarComponentes() {
-        frame = new JFrame("App");
+        frame = new JFrame("Sistema de Gerenciamento de Estacionamento");
         frame.getContentPane().setLayout(new BorderLayout());
         JPanel panel = adicionarComponentes();
         frame.getContentPane().add(panel, BorderLayout.CENTER);
@@ -48,13 +48,13 @@ public class MainApp {
         btnCadastrarMens = new JButton("Cadastrar Mensalista");
         btnCadastrarMens.addActionListener((ActionEvent e) -> {cadastrarMensalistaFun();});
 
-        btnEntSaida = new JButton("Entrada/Sa�da");
+        btnEntSaida = new JButton("Entrada/Saída");
         btnEntSaida.addActionListener((ActionEvent e) -> {entSaidaFun();});
 
-        btnConsultar = new JButton("Consultar Gr�ficos");
+        btnConsultar = new JButton("Consultar Gráficos");
         btnConsultar.addActionListener((ActionEvent e) -> {consultarFun();});
 
-        btnGerVeic = new JButton("Gerenciar Ve�culos");
+        btnGerVeic = new JButton("Gerenciar Veículos");
         btnGerVeic.addActionListener((ActionEvent e) -> {gerenciarVeiFun();});
 
         btnFazerPagMens = new JButton("Fazer Pagamento Mensal");
@@ -66,7 +66,7 @@ public class MainApp {
         btnSair = new JButton("Sair");
         btnSair.addActionListener((ActionEvent e) -> {confirmExit();});
 
-        /* configura��o do layout */
+        /* configurção do layout */
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc;
 
@@ -81,7 +81,7 @@ public class MainApp {
         gbc.insets = new Insets(10, 10, 10, 10);
         panel.add(btnCadastrarMens, gbc);
 
-        /* ENTRADA/SA�DA */
+        /* ENTRADA/SAíDA */
         gbc.gridx = 4;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
@@ -170,7 +170,7 @@ public class MainApp {
 
     private void confirmExit() {
         int answer = JOptionPane.showConfirmDialog(frame,
-                "Deseja sair?",
+                "Deseja fechar o Sistema?",
                 "Sair",
                 JOptionPane.YES_NO_OPTION);
 

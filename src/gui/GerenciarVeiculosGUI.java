@@ -44,7 +44,7 @@ public class GerenciarVeiculosGUI {
     }
 
     private void criarComponentes() {
-        frame = new JFrame("Gerenciar Ve�culos");
+        frame = new JFrame("Gerenciar Veículos");
         frame.getContentPane().setLayout(new BorderLayout());
         JPanel panel = adicionarComponentes();
         frame.getContentPane().add(panel, BorderLayout.CENTER);
@@ -63,7 +63,7 @@ public class GerenciarVeiculosGUI {
 
     private void confirmExit() {
         int answer = JOptionPane.showConfirmDialog(frame,
-                "Deseja sair?",
+                "Deseja sair da tela de Gerenciamento de Veículos?",
                 "Sair",
                 JOptionPane.YES_NO_OPTION);
 
@@ -106,7 +106,7 @@ public class GerenciarVeiculosGUI {
         }
         txtPlaca.setEditable(false);
 
-        lblDescricao = new JLabel("Descri��o");
+        lblDescricao = new JLabel("Descrição");
         txtDescricao = new JTextField(10);
         txtDescricao.setEditable(false);
 
@@ -120,7 +120,7 @@ public class GerenciarVeiculosGUI {
         btnSair = new JButton("Sair");
         btnSair.addActionListener((ActionEvent e) -> {confirmExit();});
 
-        /* configura��o do layout */
+        /* configuração do layout */
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc;
 
@@ -342,7 +342,7 @@ public class GerenciarVeiculosGUI {
         String cpf = txtCPF.getText();
         
         if (placa.isBlank() || descricao.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Os campos de Placa e Descri��o s�o obrigat�rios.");
+            JOptionPane.showMessageDialog(null, "Os campos de Placa e Descrição são obrigatórios.");
             return;
         }
 
@@ -361,7 +361,7 @@ public class GerenciarVeiculosGUI {
             protected void done() {
                 try {
                     get();
-                    JOptionPane.showMessageDialog(null, "Ve�culo salvo com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Veículo salvo com sucesso!");
                     txtPlaca.setText("");
                     txtDescricao.setText("");
                 } catch (InterruptedException | ExecutionException e) {
@@ -378,13 +378,13 @@ public class GerenciarVeiculosGUI {
         //String regexCel = "^\\([1-9]{2}\\)(?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$";
 
         if (buscaText.isBlank()){
-            JOptionPane.showMessageDialog(null, "O campo de busca n�o pode estar vazio.");
+            JOptionPane.showMessageDialog(null, "O campo de busca não pode estar vazio.");
         } else if (buscaText.matches(regexCPF)){
             verificarMensalista(buscaText, 1);
         } else if (buscaText.matches(regexCel)){
             verificarMensalista(buscaText, 2);
         } else {
-            JOptionPane.showMessageDialog(null, "Busque o Mensalista seguindo as express�es:\n\n" +
+            JOptionPane.showMessageDialog(null, "Busque o Mensalista seguindo as expressões:\n\n" +
                     "-                         CPF:    XXX.XXX.XXX-XX \n" +
                     "- Telefone Celular:    (XX)XXXXX-XXXX");
         }
@@ -409,7 +409,7 @@ public class GerenciarVeiculosGUI {
                 try {
                     Mensalista mensalista = get();
                     if (mensalista==null){
-                        JOptionPane.showMessageDialog(null, "Mensalista n�o encontrado.");
+                        JOptionPane.showMessageDialog(null, "Mensalista não encontrado.");
                     } else {
                         txtNome.setText(mensalista.getNome());
                         txtNome.setCaretPosition(0);
